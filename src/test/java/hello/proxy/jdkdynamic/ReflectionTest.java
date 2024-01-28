@@ -23,9 +23,13 @@ public class ReflectionTest {
         Class classHello = Class.forName("hello.proxy.jdkdynamic.ReflectionTest$Hello");
         Hello target = new Hello();
         //callA 메서드 정보
-        Method methodCallA = classHello.getMethod("callA"); Object result1 = methodCallA.invoke(target); log.info("result1={}", result1);
+        Method methodCallA = classHello.getMethod("callA");
+        Object result1 = methodCallA.invoke(target);
+        log.info("result1={}", result1);
         //callB 메서드 정보
-        Method methodCallB = classHello.getMethod("callB"); Object result2 = methodCallB.invoke(target); log.info("result2={}", result2);
+        Method methodCallB = classHello.getMethod("callB");
+        Object result2 = methodCallB.invoke(target);
+        log.info("result2={}", result2);
     }
 
     @Test
