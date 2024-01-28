@@ -27,4 +27,14 @@ public class JdkDynamicProxyTest {
         log.info("targetClass={}", target.getClass());
         log.info("proxyClass={}", proxy.getClass());
     }
+
+    @Test
+    void dynamicC() {
+        CInterface target = new CImpl();
+        TimeInvocationHandler handler = new TimeInvocationHandler(target);
+        CInterface proxy = (CInterface) Proxy.newProxyInstance(CInterface.class.getClassLoader(), new Class[]{CInterface.class}, handler);
+        String test = proxy.call("Test");
+        log.info("targetClass={}", target.getClass());
+        log.info("proxyClass={}", proxy.getClass());
+    }
 }
